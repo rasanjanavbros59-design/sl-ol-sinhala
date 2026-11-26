@@ -58,10 +58,8 @@ jobs:
           ./gradlew assembleRelease
 
       - name: Sign Release APK
-        env:
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
-          PASS="${KEYSTORE_PASSWORD:-OLMasterGJfsjTVjMHtk}"
+          PASS="OLMaster2026Key"
           keytool -genkeypair -v \
             -keystore release.jks \
             -storetype PKCS12 \
@@ -96,3 +94,4 @@ jobs:
           files: OL-Sinhala-A-Master.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
